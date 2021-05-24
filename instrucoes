@@ -1,0 +1,6 @@
+--------------------------------------------------------------------------------
+                            ImgToText.sh                                        
+instalar os pacotes do ImageMagick se não os tiver -> https://imagemagick.org/index.php
+dar permissao executavel ao script ->"chmod 775 ImgToText.sh"
+correr no terminal "./ImgToText.sh [imagem a converter] [cor do texto]"
+--------------------------------------------------------------------------------
