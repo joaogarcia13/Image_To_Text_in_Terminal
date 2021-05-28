@@ -40,9 +40,11 @@ then
 	echo " "
 	for i in $dir/pastaTemp/*	
 	do
-		echo "$i"		
+
+		imgTemp=$dir/pastaTemp/img-$num.png #isto esta aqui para obrigar o o codigo que esta aseguir a percorrer os ficheiros por ordem
+		#echo "$imgTemp"		
 		#encontra a cor predominante em cada bloco de 3x5px, cada bloco é = bit
-		bit=$(convert $i -resize 1x1\! \
+		bit=$(convert $imgTemp -resize 1x1\! \
     -format "%[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)]" info:-)
 		#divide os valores de rgb retornados acima em red, green e blue
 		
@@ -62,11 +64,12 @@ then
 		fi
 		
 		#imprime uma new line a cada 34 casas
-		resto=$(($num%38))
+		resto=$(($num%35))
 		if [ $resto -eq 0 ]
 		then
 			printf '\n'
 		fi
+		num=$((num+1))
 	done
 	
 	printf '\n'
