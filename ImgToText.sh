@@ -30,17 +30,17 @@ then
 	img2=`convert $img -format "%wx%h" info:`	
 	convert \( -size $img2 xc:none \) null: \( $img -crop 3x5% \) -layers composite img.png 
 	
-	#organiza a pasta, isto está aqui porque o comando anterior nao ordena os blocos por ordem
-	
-		
 	#apaga a copia
 	rm copia
+
+	#organiza pasta
+
 
 	num=0
 	echo " "
 	for i in $dir/pastaTemp/*	
 	do
-		num=$((num+1))		
+		echo "$i"		
 		#encontra a cor predominante em cada bloco de 3x5px, cada bloco é = bit
 		bit=$(convert $i -resize 1x1\! \
     -format "%[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)]" info:-)
@@ -68,8 +68,8 @@ then
 			printf '\n'
 		fi
 	done
-
-	echo " "
+	
+	printf '\n'
 
 	#limpa o directorio e apaga a pasta depois da conversão
 	cd ..
