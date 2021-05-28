@@ -23,7 +23,7 @@ then
 	img=$dir/pastaTemp/copia
 
 	 #redimensiona a imagem para ter 400px de altura mas manter proporçoes -> comando vem da biblioteca ImageMagick
-	convert $img -resize 400x $img
+	convert $img -resize 400x $img 2> /dev/null #como estou a suprimir mensagem ele imprime um nova linha
 	cd pastaTemp
 	
 	#reparte a imagem em retagulos no tamanho de um caracter 3x5px 
@@ -37,7 +37,6 @@ then
 
 
 	num=0
-	echo " "
 	for i in $dir/pastaTemp/*	
 	do
 
@@ -56,23 +55,24 @@ then
 		#se algum dos valores for maior que 200 o bloco é considerado branco
 		if [ $red -gt 250 -o $green -gt 250 -o $blue -gt 250 ]
 		then
-			printf ' '
+			printf '  '
 		else
 			#tput setaf 6
 			tput bold
-			printf '/'
+			printf '//'
 		fi
 		
 		#imprime uma new line a cada 34 casas
-		resto=$(($num%35))
+		resto=$(($num%34))
 		if [ $resto -eq 0 ]
 		then
 			printf '\n'
 		fi
 		num=$((num+1))
 	done
-	
-	printf '\n'
+
+	printf '\n'	
+	echo " "
 
 	#limpa o directorio e apaga a pasta depois da conversão
 	cd ..
