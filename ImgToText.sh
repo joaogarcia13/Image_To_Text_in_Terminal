@@ -15,6 +15,7 @@ fi
 
 if [ $# -eq 2 ]
 then
+	cor=$2
 	dir=$(pwd)
 	#copia imagem para a pasta dos Scripts e muda o nome para copia
 	mkdir pastaTemp
@@ -57,9 +58,38 @@ then
 		then
 			printf '  '
 		else
-			#tput setaf 6
+			#if que ve qual a cor a imprimir o texto
 			tput bold
-			printf '//'
+			if [ $cor = "azul" ]
+			then
+				tput setaf 6
+				printf '//'
+			elif [ $cor = "verde" ]
+			then
+				tput setaf 2
+				printf '//'
+			elif [ $cor = "preto" ]
+			then
+				tput setaf 0
+				printf '//'
+			elif [ $cor = "vermelho" ]
+			then
+				tput setaf 1
+				printf '//'
+			elif [ $cor = "amarelo" ]
+			then
+				tput setaf 3
+				printf '//'
+			elif [ $cor =  "roxo" ]
+			then 
+				tput setaf 5
+				printf '//'
+			elif [ $cor = "branco" ]
+			then
+				tput setaf 7
+				printf '//'
+			fi
+			#falta pormensgem de erro se a cor nao existir
 		fi
 		
 		#imprime uma new line a cada 34 casas
