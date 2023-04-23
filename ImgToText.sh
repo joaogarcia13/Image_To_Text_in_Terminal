@@ -60,31 +60,31 @@ then
 		else
 			#if que ve qual a cor a imprimir o texto
 			tput bold
-			if [ $cor = "azul" ]
+			if [ $cor = "blue" ]
 			then
 				tput setaf 6
 				printf '//'
-			elif [ $cor = "verde" ]
+			elif [ $cor = "green" ]
 			then
 				tput setaf 2
 				printf '//'
-			elif [ $cor = "preto" ]
+			elif [ $cor = "black" ]
 			then
 				tput setaf 0
 				printf '//'
-			elif [ $cor = "vermelho" ]
+			elif [ $cor = "red" ]
 			then
 				tput setaf 1
 				printf '//'
-			elif [ $cor = "amarelo" ]
+			elif [ $cor = "yellow" ]
 			then
 				tput setaf 3
 				printf '//'
-			elif [ $cor =  "roxo" ]
+			elif [ $cor =  "purple" ]
 			then 
 				tput setaf 5
 				printf '//'
-			elif [ $cor = "branco" ]
+			elif [ $cor = "white" ]
 			then
 				tput setaf 7
 				printf '//'
